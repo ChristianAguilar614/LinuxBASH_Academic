@@ -1,0 +1,96 @@
+#1
+umask 062
+touch a b c
+mkdir d
+ls -ld [a..d]
+umask 002
+
+echo *****************************************************************************************************************
+#2
+echo -e "a) cat w x y z; \n assuming that z is a file ... all files will be outputed to standard out"
+echo -e b) cp w x y z; \n with same assumption .. nothing will get copied. Will produce error saying that z is a file"
+echo -e c/d) changing z and reruning the same commands will produce and error on (a) because cat doesnt take directories \n
+as arguments. and (b) will copy w x & y into z."
+
+echo *****************************************************************************************************************
+#3
+longListing=`man ls | grep 'long listing'
+echo "man page of ls:\"$longListing\" and this particular line contians `man ls | grep 'long listing format' | wc -w` words"
+
+echo *****************************************************************************************************************
+#4
+echo The \'top\' command is used to see the precesses being run by the linux kernal
+top -d 100
+q
+
+echo the \'du\' command is to show the file space of a specific file
+du -a ~
+du -k ~
+du -s ~
+
+du -sk ~
+
+echo The \'df\' command is used to show the remaining space, if no args are passed, it defaults to system mounted disks
+df -h
+df -i
+
+echo ******************************************************************************************************************
+#5
+cal 2014 > calFile
+sed "s/January/ Enero /g
+s/February/ Febrero/g
+s/March/ Marso/g
+s/April/Abril/g
+s/May/Mayo/g
+s/June/Junio/g
+s/July/Julio/g
+s/August/Agosto/g
+s/September/Septiembre/g
+s/October/Octubre/g
+s/November/Noviembre/g
+s/December/Diciembre/g" calFile > myChanges.sed
+
+sed "s/Su/Do/g
+s/Mo/Lu/g
+s/Tu/Ma/g
+s/We/Mi/g
+s/Th/Ju/g
+s/Fr/Vi/g
+s/Sa/Sa/g" calFile >> myChanges.sed
+
+echo ********************************************************************************************************************
+#6
+echo alphabetic First Names
+sort -k1.1 -d names
+
+echo alphabetic Last Names
+sort -k2.1 -d names
+
+echo Numerical Order, age
+sort -k3.1 -n names
+
+echo Reverse Order, age
+sort -k3.1 -rn names
+
+echo *********************************************************************************************************************
+#7
+diff names names2
+vi names names2
+diff names names2
+
+echo **********************************************************************************************************************
+#8
+cat ~/cs130/jerry/listlinks
+~/cs130/jerry/listlinks
+
+echo **********************************************************************************************************************
+#9
+./search /etc 'mount point' 2>/dev/null
+
+echo **********************************************************************************************************************
+#10
+cat bin/cal
+cal
+export PATH="$HOME/bin"
+cal
+

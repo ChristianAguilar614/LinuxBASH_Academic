@@ -1,0 +1,271 @@
+@cslab-l27:~$ ./lab6
+mkdir: cannot create directory ‘d’: File exists
+-rw----r-- 1 craguilar domain^users 0 Dec 10 15:41 a
+-rw----r-- 1 craguilar domain^users 0 Dec 10 15:41 b
+-rw----r-- 1 craguilar domain^users 0 Dec 10 15:41 c
+*****************************************************************************************************************
+a) cat w x y z; 
+ assuming that z is a file ... all files will be outputed to standard out
+This lab is an introduction to writing bash scripts, using variables to communicate information to the script, and writing generic programs. Here you will explore the various techniques available to scripts for generically receiving data from outside sources, and using that data to create customized output.
+
+This lab is an introduction to writing bash scripts, using variables to communicate information to the script, and writing generic programs. Here you will explore the various techniques available to scripts for generically receiving data from outside sources, and using that data to create customized output.
+
+This lab is an introduction to writing bash scripts, using variables to communicate information to the script, and writing generic programs. Here you will explore the various techniques available to scripts for generically receiving data from outside sources, and using that data to create customized output.
+
+cat: z: Is a directory
+
+b) cp w x y z; 
+ with same assumption .. nothing will get copied. Will produce error saying that z is a file
+
+c/d) changing z and reruning the same commands will produce and error on (a) because cat doesnt take directories 
+
+as arguments. and (b) will copy w x & y into z.
+rm: cannot remove ‘z’: Is a directory
+mkdir: cannot create directory ‘z’: File exists
+This lab is an introduction to writing bash scripts, using variables to communicate information to the script, and writing generic programs. Here you will explore the various techniques available to scripts for generically receiving data from outside sources, and using that data to create customized output.
+
+This lab is an introduction to writing bash scripts, using variables to communicate information to the script, and writing generic programs. Here you will explore the various techniques available to scripts for generically receiving data from outside sources, and using that data to create customized output.
+
+This lab is an introduction to writing bash scripts, using variables to communicate information to the script, and writing generic programs. Here you will explore the various techniques available to scripts for generically receiving data from outside sources, and using that data to create customized output.
+
+cat: z: Is a directory
+w  x  y
+*****************************************************************************************************************
+man page of ls:"              in a long listing, don't print group names
+       -l     use a long listing format" and this particular line contians 6 words
+*****************************************************************************************************************
+The 'top' command is used to see the precesses being run by the linux kernal
+
+top - 15:42:03 up  3:09,  2 users,  load average: 0.00, 0.01, 0.05
+Tasks: 175 total,   1 running, 173 sleeping,   1 stopped,   0 zombie
+%Cpu(s):  4.3 us,  1.3 sy,  0.0 ni, 93.4 id,  0.9 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem:   3881764 total,  1433444 used,  2448320 free,    89716 buffers
+KiB Swap:  4024316 total,        0 used,  4024316 free.   938064 cached Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                                                  
+    1 root      20   0   43748   4336   2088 S   0.0  0.1   0:01.83 init                                                                                     
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd                                                                                 
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.08 ksoftirqd/0                                                                              
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H                                                                             
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.98 rcu_sched                                                                                
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.60 rcuos/0                                                                                  
+    9 root      20   0       0      0      0 S   0.0  0.0   0:00.74 rcuos/1                                                                                  
+   10 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuos/2                                                                                  
+   11 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuos/3                                                                                  
+   12 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuos/4                                                                                  
+   13 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuos/5                                                                                  
+   14 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuos/6                                                                                  
+   15 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuos/7                                                                                  
+   16 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh                                                                                   
+   17 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuob/0                                                                                  
+   18 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuob/1                                                                                  
+   19 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuob/2                                                                                  
+   20 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuob/3                                                                                  
+   21 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuob/4                                                                                  
+   22 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuob/5                                                                                  
+   23 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuob/6                                                                                  
+   24 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcuob/7                                                                                  
+   25 root      rt   0       0      0      0 S   0.0  0.0   0:00.10 migration/0                                                                              
+   26 root      rt   0       0      0      0 S   0.0  0.0   0:00.02 watchdog/0                                                                               
+   27 root      rt   0       0      0      0 S   0.0  0.0   0:00.02 watchdog/1                                                                               
+   28 root      rt   0       0      0      0 S   0.0  0.0   0:00.01 migration/1                                                                              
+   29 root      20   0       0      0      0 S   0.0  0.0   0:00.34 ksoftirqd/1                                                                              
+   30 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0                                                                              
+   31 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0H                                                                             
+   32 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 khelper                                                                                  
+   33 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kdevtmpfs                                                                                
+   34 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 netns                                                                                    
+   35 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 writeback                                                                                
+   36 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kintegrityd                                                                              
+   37 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 bioset                                                                                   
+   38 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/u17:0                                                                            
+   39 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kblockd                                                                                  
+   40 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 ata_sff                                                                                  
+   41 root      20   0       0      0      0 S   0.0  0.0   0:00.00 khubd                                                                                    
+   42 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 md                                                                                       
+   43 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 devfreq_wq                                                                               
+   44 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kworker/0:1                                                                              
+   45 root      20   0       0      0      0 S   0.0  0.0   0:00.65 kworker/1:1                                                                              
+   46 root      20   0       0      0      0 S   0.0  0.0   0:00.00 khungtaskd                                                                               
+   47 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kswapd0                                                                                  
+   48 root      25   5       0      0      0 S   0.0  0.0   0:00.00 ksmd                                                                                     
+   49 root      39  19       0      0      0 S   0.0  0.0   0:00.26 khugepaged                                                                               
+   50 root      20   0       0      0      0 S   0.0  0.0   0:00.00 fsnotify_mark                                                                            
+the 'du' command is to show the file space of a specific file
+499592	/home/SBCC/craguilar
+The 'df' command is used to show the remaining space, if no args are passed, it defaults to system mounted disks
+Filesystem                            Size  Used Avail Use% Mounted on
+/dev/sda1                              70G  8.1G   58G  13% /
+none                                  4.0K     0  4.0K   0% /sys/fs/cgroup
+udev                                  1.9G  4.0K  1.9G   1% /dev
+tmpfs                                 380M  1.3M  378M   1% /run
+none                                  5.0M     0  5.0M   0% /run/lock
+none                                  1.9G     0  1.9G   0% /run/shm
+none                                  100M  148K  100M   1% /run/user
+csnfs.sbcc.net:/workstation/software  132G  5.6G  120G   5% /software
+csnfs.sbcc.net:/home/SBCC             536G  362G  148G  72% /home/SBCC
+/dev/sdb                              955M  499M  456M  53% /media/craguilar/SANDISK
+Filesystem                             Inodes   IUsed    IFree IUse% Mounted on
+/dev/sda1                             4636672  219820  4416852    5% /
+none                                   485220       2   485218    1% /sys/fs/cgroup
+udev                                   482528     514   482014    1% /dev
+tmpfs                                  485220     525   484695    1% /run
+none                                   485220       3   485217    1% /run/lock
+none                                   485220       1   485219    1% /run/shm
+none                                   485220      25   485195    1% /run/user
+csnfs.sbcc.net:/workstation/software  8757248   44291  8712957    1% /software
+csnfs.sbcc.net:/home/SBCC            35684352 3523949 32160403   10% /home/SBCC
+/dev/sdb                                    0       0        0     - /media/craguilar/SANDISK
+******************************************************************************************************************
+                            2014
+       Enero                 Febrero                Marso          
+Do Lu Ma Mi Ju Vi Sa  Do Lu Ma Mi Ju Vi Sa  Do Lu Ma Mi Ju Vi Sa  
+          1  2  3  4                     1                     1  
+ 5  6  7  8  9 10 11   2  3  4  5  6  7  8   2  3  4  5  6  7  8  
+12 13 14 15 16 17 18   9 10 11 12 13 14 15   9 10 11 12 13 14 15  
+19 20 21 22 23 24 25  16 17 18 19 20 21 22  16 17 18 19 20 21 22  
+26 27 28 29 30 31     23 24 25 26 27 28     23 24 25 26 27 28 29  
+                                            30 31                 
+
+       Abril                  Mayo                   Junio          
+Do Lu Ma Mi Ju Vi Sa  Do Lu Ma Mi Ju Vi Sa  Do Lu Ma Mi Ju Vi Sa  
+       1  2  3  4  5               1  2  3   1  2  3  4  5  6  7  
+ 6  7  8  9 10 11 12   4  5  6  7  8  9 10   8  9 10 11 12 13 14  
+13 14 15 16 17 18 19  11 12 13 14 15 16 17  15 16 17 18 19 20 21  
+20 21 22 23 24 25 26  18 19 20 21 22 23 24  22 23 24 25 26 27 28  
+27 28 29 30           25 26 27 28 29 30 31  29 30                 
+                                                                  
+
+        Julio                 Agosto              Septiembre        
+Do Lu Ma Mi Ju Vi Sa  Do Lu Ma Mi Ju Vi Sa  Do Lu Ma Mi Ju Vi Sa  
+       1  2  3  4  5                  1  2      1  2  3  4  5  6  
+ 6  7  8  9 10 11 12   3  4  5  6  7  8  9   7  8  9 10 11 12 13  
+13 14 15 16 17 18 19  10 11 12 13 14 15 16  14 15 16 17 18 19 20  
+20 21 22 23 24 25 26  17 18 19 20 21 22 23  21 22 23 24 25 26 27  
+27 28 29 30 31        24 25 26 27 28 29 30  28 29 30              
+                      31                                          
+
+      Octubre               Noviembre              Diciembre        
+Do Lu Ma Mi Ju Vi Sa  Do Lu Ma Mi Ju Vi Sa  Do Lu Ma Mi Ju Vi Sa  
+          1  2  3  4                     1      1  2  3  4  5  6  
+ 5  6  7  8  9 10 11   2  3  4  5  6  7  8   7  8  9 10 11 12 13  
+12 13 14 15 16 17 18   9 10 11 12 13 14 15  14 15 16 17 18 19 20  
+19 20 21 22 23 24 25  16 17 18 19 20 21 22  21 22 23 24 25 26 27  
+26 27 28 29 30 31     23 24 25 26 27 28 29  28 29 30 31           
+                      30                                          
+********************************************************************************************************************
+alphabetic First Names
+Billie SANDERS 36
+Brian HENDERSON 40
+Clare HOWARD 19
+Leonare JAMES 13
+LUCY Foster 31
+NATHANIEL Gonzales 29
+ROSALIA Torres 45
+Rosemary WATSON 32
+Titus MARTIN 12
+VIOLA Henderson 22
+
+alphabetic Last Names
+LUCY Foster 31
+NATHANIEL Gonzales 29
+VIOLA Henderson 22
+Brian HENDERSON 40
+Clare HOWARD 19
+Leonare JAMES 13
+Titus MARTIN 12
+Billie SANDERS 36
+ROSALIA Torres 45
+Rosemary WATSON 32
+
+Numerical Order, age
+Titus MARTIN 12
+Leonare JAMES 13
+Clare HOWARD 19
+VIOLA Henderson 22
+NATHANIEL Gonzales 29
+LUCY Foster 31
+Rosemary WATSON 32
+Billie SANDERS 36
+Brian HENDERSON 40
+ROSALIA Torres 45
+
+Reverse Order, age
+ROSALIA Torres 45
+Brian HENDERSON 40
+Billie SANDERS 36
+Rosemary WATSON 32
+LUCY Foster 31
+NATHANIEL Gonzales 29
+VIOLA Henderson 22
+Clare HOWARD 19
+Leonare JAMES 13
+Titus MARTIN 12
+*********************************************************************************************************************
+1c1
+< Rosemary WATSON 32
+---
+> Rosemary Watson 32
+8c8
+< NATHANIEL Gonzales 29
+---
+> NATHANIEL G. 29
+**********************************************************************************************************************
+#utility used to list files that have a symbolic link to them
+ls -la | grep "lrwxrwxrwx"
+
+lrwxrwxrwx   1 craguilar domain^users     5 Dec 10 15:40 softies -> names
+lrwxrwxrwx   1 craguilar domain^users     5 Dec 10 15:41 softies2 -> names
+lrwxrwxrwx   1 craguilar domain^users     5 Dec 10 15:41 softies3 -> names
+lrwxrwxrwx   1 craguilar domain^users     5 Dec 10 15:41 softies5 -> names
+**********************************************************************************************************************
+./search /etc 'mount point' 2>/dev/null
+
+/etc/schroot/buildd/fstab
+2:# Note that the mount point will be prefixed by the chroot path
+5:# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+/etc/schroot/desktop/fstab
+2:# Note that the mount point will be prefixed by the chroot path
+5:# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+/etc/schroot/click/fstab
+2:# Note that the mount point will be prefixed by the chroot path
+5:# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+/etc/schroot/minimal/fstab
+2:# Note that the mount point will be prefixed by the chroot path
+5:# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+/etc/schroot/sbuild/fstab
+2:# Note that the mount point will be prefixed by the chroot path
+5:# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+/etc/schroot/default/fstab
+2:# Note that the mount point will be prefixed by the chroot path
+5:# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+/etc/fstab
+7:# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+
+**********************************************************************************************************************
+#Calender script to show the ordinal day of the year instead of months
+#!/bin/bash
+
+date +%j;
+/usr/bin/cal;
+echo -e "Linux over Windows anyday! Open source > corporations\n";
+   December 2014      
+Su Mo Tu We Th Fr Sa  
+    1  2  3  4  5  6  
+ 7  8  9 10 11 12 13  
+14 15 16 17 18 19 20  
+21 22 23 24 25 26 27  
+28 29 30 31           
+                      
+344
+   December 2014      
+Su Mo Tu We Th Fr Sa  
+    1  2  3  4  5  6  
+ 7  8  9 10 11 12 13  
+14 15 16 17 18 19 20  
+21 22 23 24 25 26 27  
+28 29 30 31           
+                      
+Linux over Windows anyday! Open source > corporations
+
+

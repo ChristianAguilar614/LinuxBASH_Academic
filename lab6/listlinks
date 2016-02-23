@@ -1,0 +1,3 @@
+#utility used to list files that have a symbolic link to them
+ls -la | grep "lrwxrwxrwx"
+

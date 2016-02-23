@@ -1,0 +1,78 @@
+# CS130 Script Header, Fall, 2014
+
+ProblemStart ()
+{
+if [ -f ~/bin/processStart ]; then source ~/bin/processStart $1; fi
+set -o verbose
+}
+
+ProblemEnd ()
+{
+set +o verbose
+read -p "(press Enter) " input
+if [ -f ~/bin/processEnd ]; then source ~/bin/processEnd $1 $input; fi
+}
+
+# force the script to begin running in HOME directory (~)
+cd ~
+echo
+
+# (don't change anything above this line !)
+#----------------------------------------------------------------------
+
+# replace Jimi's name with your name below, using format:  Last, First
+myName="Aguilar, Christian"
+echo $myName; echo
+
+echo 1111111111111111111111111111111111111111111111111111111111111111111
+ProblemStart 1
+cat ~/small | tr trsastsion blisowt48239 
+cat ~/small | tr awegbionlk ionelsbx239g > decode
+cat ~/decode
+cat ~/decode | tr ionelsbx239g awegbionlk
+cat ~/decode | tr blisowt48239 trsastsion
+cat ~/decode | cat ~/small
+diff -q ~/small ~/decode
+ProblemEnd 1
+
+
+echo 2222222222222222222222222222222222222222222222222222222222222222222
+ProblemStart 2
+cp ~/small ~/smallBackUP | cat ~/small | tee ~/allTeedOff | tr abc 123 > ~/decodedTee | rm ~/decode
+cat ~/allTeedOff
+
+ProblemEnd 2
+
+
+echo 3333333333333333333333333333333333333333333333333333333333333333333
+ProblemStart 3
+date -u %n
+date -u '%n' 1>~/good 2>~/error
+cat ~/good
+cat ~/error
+ProblemEnd 3
+
+
+echo 4444444444444444444444444444444444444444444444444444444444444444444
+ProblemStart 4
+read -p "Input a list of strings / characters spaced by the spacebar: " listStr
+read -p "Enter a delay time: " time
+rm -f ~/myData
+
+for i in $listStr; do 
+	echo $i
+	date>>myData
+	echo $i>>myData
+	sleep $time
+done
+echo "............................."
+cat ~/myData
+ProblemEnd 4
+
+
+echo 5555555555555555555555555555555555555555555555555555555555555555555
+ProblemStart 5
+man bash | head -n 70 | nl > ~/bashed
+cat ~/bashed | head -n 54 | tail -n 3 | head 3
+cat ~/bashed | tail -n 19 | head -n 3 | tail 3
+ProblemEnd 5

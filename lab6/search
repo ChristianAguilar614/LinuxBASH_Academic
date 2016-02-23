@@ -1,0 +1,6 @@
+#Search utility based on the search utility made by D.J. Kloos in cs130
+#will search based on commandline arguments in specified directory
+
+#!/bin/bash
+find $1 -type f -exec grep -il "$2" {} \; -exec grep -in "$2" {} \; 2 > /dev/null
+

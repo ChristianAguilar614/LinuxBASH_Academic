@@ -1,0 +1,89 @@
+# CS130 Script Header, Fall, 2014
+
+ProblemStart ()
+{
+if [ -f ~/bin/processStart ]; then source ~/bin/processStart $1; fi
+set -o verbose
+}
+
+ProblemEnd ()
+{
+set +o verbose
+read -p "(press Enter) " input
+if [ -f ~/bin/processEnd ]; then source ~/bin/processEnd $1 $input; fi
+}
+
+# force the script to begin running in HOME directory (~)
+cd ~
+echo
+
+# (don't change anything above this line !)
+#----------------------------------------------------------------------
+
+# replace Jimi's name with your name below, using format:  Last, First
+myName="Aguilar, Christian"
+echo $myName; echo
+
+echo 1111111111111111111111111111111111111111111111111111111111111111111
+ProblemStart 1
+
+cal | head --line=3 > ~/hexy; cal | tail --line=5 | od -x | cat >> ~/hexy; cat ~/hexy
+cal | head --line=3 > ~/hexy; cal | tail --line=5 | od -x | cat >> ~/hexy; cat ~/hexy
+
+ln ~/hexy ~/craguilar_hard
+ln -s ~/hexy ~/craguilar_soft
+ls -liF ~
+
+#ln ~/hexy /tmp/craguilar_hard
+#ln -s ~/hexy /tmp/craguilar_soft
+
+#ln -liF /tmp
+ProblemEnd 1
+
+
+echo 2222222222222222222222222222222222222222222222222222222222222222222
+ProblemStart 2
+export LC_ALL='c'
+source ~/.profile
+
+echo $local
+
+ls ~/lar* ~/cur*
+ls ~/[larr,curl]y
+ls ~/cur? ~/lar?
+
+shopt -p
+alias = ls -a | sort -d 
+echo 2222222222222222222222222222222222222222222222222222222222222222222
+
+
+echo 3333333333333333333333333333333333333333333333333333333333333333333
+ProblemStart 3
+shopt -p
+alias left=~/left
+alias right=~/right
+
+left; pwd; right; pwd;
+
+left; cd -; pwd; cd -pwd;
+ProblemEnd 3
+
+
+echo 4444444444444444444444444444444444444444444444444444444444444444444
+ProblemStart 4
+echo "Right now, the value of my \$PWD is "$PWD
+echo "Try \\echo \`ps -ef to see more processes
+echo -e "Suddenly she exclaimed, \"We'll never get out alive \!\""
+echo -e "This result is \non two lines"
+
+ProblemEnd 4
+
+
+echo 5555555555555555555555555555555555555555555555555555555555555555555
+ProblemStart 5
+touch ~/`echo {,1,2}{1,2,3,4,5,6,7,8,9}Feb{13,14}`
+ls ~/*Feb*
+ls ~/*Feb* | echo "$(wc -l) months were just displayed"
+ProblemEnd 5
+
+
